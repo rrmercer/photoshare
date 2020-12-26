@@ -20,3 +20,11 @@ $> docker ps # to get the ID used below:
 $> docker exec -it <ID> psql -U postgres
 
 psql -h localhost -p 5432 -U postgres -W
+
+# bullshit related to clang needing ssl version: "ld: library not found for -lssl"
+$pip3 install psycopg2
+> error: ld: library not found for -lssl
+$export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+$export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+$pip3 install psycopg2
+> works now
