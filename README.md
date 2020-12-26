@@ -1,17 +1,16 @@
 # photoshare
+Stupid simple photo sharing application. Share photos 
+backed by s3 bucket with friends and family
 
-# Stupid simple photo sharing application. Share photos 
-# backed by s3 bucket with friends and family
+# Requirements:
+Use case 1: I want to share photos in a large collection (album) with family members
 
-# Use case 1: I want to share photos in a large collection (album) with family members
+photos - have an owner
+albums - have an owner, multiple photos
+users
+groups - have permission to access albums
 
-
-# photos - have an owner
-# albums - have an owner, multiple photos
-# users
-# groups - have permission to access albums
-
-
+# Running
 running postgres:
 
 docker run --rm --name postgres-db -p 5432:5432 -e POSTGRES_PASSWORD=n0password1 -d postgres
@@ -21,7 +20,8 @@ $> docker exec -it <ID> psql -U postgres
 
 psql -h localhost -p 5432 -U postgres -W
 
-# bullshit related to clang needing ssl version: "ld: library not found for -lssl"
+# Troubleshooting 
+bullshit related to clang needing ssl version: "ld: library not found for -lssl"
 $pip3 install psycopg2
 > error: ld: library not found for -lssl
 $export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
